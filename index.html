@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            position: absolute;
+            font-family: "Roboto", sans-serif;
+            text-align: center;
+            width: 100%;
+            margin: 20px 0px 0;
+            max-width: 100%;
+        }
+
+        h1 {
+            font-weight: 300;
+        }
+
+        button {
+            padding: 10px 40px;
+            border-radius: 5px;
+            font-family: "Roboto", sans-serif;
+            border: transparent;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:first-child {
+            background-color: green;
+        }
+
+        button:nth-child(2) {
+            background-color: red;
+        }
+
+        div.buttons {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        img {
+            width: 200px;
+            max-width: 100%;
+            margin: auto;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 5px 5px 20px #000;
+        }
+      
+    </style>
+</head>
+
+<body>
+    <div>
+        <img src="./nossa-foto.jpeg" alt="">
+
+        <h1>Quer namorar comigo?</h1>
+        <div class='buttons'>
+            <button>Sim</button>
+            <button class="second">Não</button>
+        </div>
+
+        <p>Gostaria de fazer mais um pedido de namoro só para manter nosso banco de informações atualizado. kkkk!! Te amo, amor!</p>
+    </div>
+
+    <script>
+        var moveButton = document.querySelector("button:nth-child(2)");
+
+        var correctlyButton = document.querySelector("button:first-child");
+
+
+
+        moveButton.addEventListener("click", function () {
+            var buttonWidth = moveButton.offsetWidth;
+            var buttonHeight = moveButton.offsetHeight;
+
+            var maxVertical = window.innerWidth - buttonWidth;
+            var maxHorizontal = window.innerHeight - buttonHeight;
+
+            var vertical = Math.floor(Math.random() * maxVertical);
+            var horizontal = Math.floor(Math.random() * maxHorizontal);
+
+            moveButton.style.position = "absolute";
+            moveButton.style.left = vertical + "px";
+            moveButton.style.top = horizontal + "px";
+        });
+        correctlyButton.addEventListener("click", function () {
+            alert("Resposta correta! Agora você tem que vir ao congresso de Jovens no Setor 10. Agradeço, té mais!!!");
+        });
+    </script>
+</body>
+
+</html>
